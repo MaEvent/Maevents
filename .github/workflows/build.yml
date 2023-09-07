@@ -1,0 +1,25 @@
+name: App Build
+
+on:
+  push:
+    branches: [prod, dev]
+  pull_request:
+    branches: [prod, dev]
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Fetch Node Modules
+        run: npm install
+
+      - name: Build React App
+        run: npm run build
+
+      - name: Compile Smart Contract
+        run: npx hardhat compile
