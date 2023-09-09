@@ -18,8 +18,8 @@ jobs:
       - name: Fetch Node Modules
         run: npm install
 
-      - name: Build React App
-        run: npm run build
-
       - name: Compile Smart Contract
         run: npx hardhat compile
+
+      - name: Build React App
+        run: npm run build
