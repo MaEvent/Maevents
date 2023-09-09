@@ -26,6 +26,12 @@ npx hardhat help
 git clone https://github.com/RyanKoech/Reservo.git
 ```
 
+#### Navigate to the project folder
+
+```bash
+cd Reservo
+```
+
 #### Fetch node modules
 
 ```bash
