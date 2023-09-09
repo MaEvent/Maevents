@@ -1,23 +1,72 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+// Import ABI implementation
+import { createEvent, purchaseTicket, enterEvent, closeEvent, withdrawFunds, updateEventDetails, getAllEvents } from './services/EventTicketingService';
 
 function App() {
+
+  async function performCreateEvent() {
+    createEvent("testing", 1696852293000, 2, 10);
+  }
+
+  async function performPurchaseTicket() {
+    purchaseTicket(1, 10);
+  }
+
+  async function performEnterEvent() {
+    enterEvent(1);
+  }
+
+  async function performCloseEvent() {
+    closeEvent(1);
+  }
+
+  async function performWithdrawFunds() {
+    withdrawFunds(1);
+  }
+
+  async function performUpdateEventDetails() {
+    updateEventDetails(1, "testing2", 2696852293000, 2, 20);
+  }
+
+  async function performGetAllEvents() {
+    getAllEvents();
+  }
+
+  // Return
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App-header">
+        {/* DESCRIPTION  */}
+        <div className="description">
+          <h1>EventTicketing.sol</h1>
+          <h3>Full stack dapp using ReactJS and Hardhat</h3>
+        </div>
+        {/* BUTTONS - Fetch and Set */}
+        <div className="custom-buttons">
+          <button onClick={performGetAllEvents} style={{ backgroundColor: "green" }}>
+            Get All Events
+          </button>
+          <button onClick={performCreateEvent} style={{ backgroundColor: "red" }}>
+            Create Event
+          </button>
+          <button onClick={performPurchaseTicket} style={{ backgroundColor: "blue" }}>
+            Purchase Ticket
+          </button>
+          <button onClick={performEnterEvent} style={{ backgroundColor: "yellow" }}>
+            Enter Event
+          </button>
+          <button onClick={performCloseEvent} style={{ backgroundColor: "orange" }}>
+            Close Event
+          </button>
+          <button onClick={performWithdrawFunds} style={{ backgroundColor: "purple" }}>
+            Withdraw Funds
+          </button>
+          <button onClick={performUpdateEventDetails} style={{ backgroundColor: "grey" }}>
+            Edit Event
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
