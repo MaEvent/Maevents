@@ -1,77 +1,36 @@
-import { useState } from "react";
-import { ethers } from "ethers";
-// Import ABI Code to interact with smart contract
-import Greeter from "./artifacts/contracts/Greeter.sol/Greeter.json";
 import "./App.css";
 
-// The contract address
-const greeterAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+// Import ABI implementation
+import { createEvent, purchaseTicket, enterEvent, closeEvent, withdrawFunds, updateEventDetails, getAllEvents } from './services/EventTicketingService';
 
 function App() {
-  // Property Variables
 
-  const [message, setMessage] = useState("");
-  const [currentGreeting, setCurrentGreeting] = useState("");
-
-  // Helper Functions
-
-  // Requests access to the user's Meta Mask Account
-  // https://metamask.io/
-  async function requestAccount() {
-    await window.ethereum.request({ method: "eth_requestAccounts" });
+  async function performCreateEvent() {
+    createEvent("testing", 1696852293000, 2, 10);
   }
 
-  // Fetches the current value store in greeting
-  async function fetchGreeting() {
-    // If MetaMask exists
-    if (typeof window.ethereum !== "undefined") {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const contract = new ethers.Contract(
-        greeterAddress,
-        Greeter.abi,
-        provider
-      );
-      try {
-        // Call Greeter.greet() and display current greeting in `console`
-        /* 
-          function greet() public view returns (string memory) {
-            return greeting;
-          }
-        */
-        const data = await contract.greet();
-        console.log("data: ", data);
-        setCurrentGreeting(data);
-      } catch (error) {
-        console.log("Error: ", error);
-      }
-    }
+  async function performPurchaseTicket() {
+    purchaseTicket(1, 10);
   }
 
-  // Sets the greeting from input text box
-  async function setGreeting() {
-    if (!message) return;
+  async function performEnterEvent() {
+    enterEvent(1);
+  }
 
-    // If MetaMask exists
-    if (typeof window.ethereum !== "undefined") {
-      await requestAccount();
+  async function performCloseEvent() {
+    closeEvent(1);
+  }
 
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
+  async function performWithdrawFunds() {
+    withdrawFunds(1);
+  }
 
-      // Create contract with signer
-      /*
-        function setGreeting(string memory _greeting) public {
-          console.log("Changing greeting from '%s' to '%s'", greeting, _greeting);
-          greeting = _greeting;
-        } 
-      */
-      const contract = new ethers.Contract(greeterAddress, Greeter.abi, signer);
-      const transaction = await contract.setGreeting(message);
+  async function performUpdateEventDetails() {
+    updateEventDetails(1, "testing2", 2696852293000, 2, 20);
+  }
 
-      setMessage("");
-      await transaction.wait();
-      fetchGreeting();
-    }
+  async function performGetAllEvents() {
+    getAllEvents();
   }
 
   // Return
@@ -80,27 +39,33 @@ function App() {
       <div className="App-header">
         {/* DESCRIPTION  */}
         <div className="description">
-          <h1>Greeter.sol</h1>
+          <h1>EventTicketing.sol</h1>
           <h3>Full stack dapp using ReactJS and Hardhat</h3>
         </div>
         {/* BUTTONS - Fetch and Set */}
         <div className="custom-buttons">
-          <button onClick={fetchGreeting} style={{ backgroundColor: "green" }}>
-            Fetch Greeting
+          <button onClick={performGetAllEvents} style={{ backgroundColor: "green" }}>
+            Get All Events
           </button>
-          <button onClick={setGreeting} style={{ backgroundColor: "red" }}>
-            Set Greeting
+          <button onClick={performCreateEvent} style={{ backgroundColor: "red" }}>
+            Create Event
+          </button>
+          <button onClick={performPurchaseTicket} style={{ backgroundColor: "blue" }}>
+            Purchase Ticket
+          </button>
+          <button onClick={performEnterEvent} style={{ backgroundColor: "yellow" }}>
+            Enter Event
+          </button>
+          <button onClick={performCloseEvent} style={{ backgroundColor: "orange" }}>
+            Close Event
+          </button>
+          <button onClick={performWithdrawFunds} style={{ backgroundColor: "purple" }}>
+            Withdraw Funds
+          </button>
+          <button onClick={performUpdateEventDetails} style={{ backgroundColor: "grey" }}>
+            Edit Event
           </button>
         </div>
-        {/* INPUT TEXT - String  */}
-        <input
-          onChange={(e) => setMessage(e.target.value)}
-          value={message}
-          placeholder="Set Greeting Message"
-        />
-
-        {/* Current Value stored on Blockchain */}
-        <h2 className="greeting">Greeting: {currentGreeting}</h2>
       </div>
     </div>
   );
