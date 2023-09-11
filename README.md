@@ -1,4 +1,4 @@
-# Basic Sample Hardhat Project - Reservo
+# Basic Sample Hardhat Project - Maevents
 
 This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
 
@@ -23,13 +23,13 @@ npx hardhat help
 #### Clone repo
 
 ```bash
-git clone https://github.com/RyanKoech/Reservo.git
+git clone https://github.com/RyanKoech/Maevents.git
 ```
 
 #### Navigate to the project folder
 
 ```bash
-cd Reservo
+cd Maevents
 ```
 
 #### Fetch node modules
