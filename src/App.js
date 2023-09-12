@@ -6,7 +6,7 @@ import { createEvent, purchaseTicket, enterEvent, closeEvent, withdrawFunds, upd
 function App() {
 
   async function performCreateEvent() {
-    createEvent("testing", 1696852293000, 2, 10);
+    createEvent("testing", "testing description", "imageUrl", 1696852293000, 2, 10);
   }
 
   async function performPurchaseTicket() {
@@ -26,7 +26,7 @@ function App() {
   }
 
   async function performUpdateEventDetails() {
-    updateEventDetails(1, "testing2", 2696852293000, 2, 20);
+    updateEventDetails(1, "testing2", "testing description", "imageUrl", 2696852293000, 2, 20);
   }
 
   async function performGetAllEvents() {

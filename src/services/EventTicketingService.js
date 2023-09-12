@@ -11,7 +11,7 @@ async function requestAccount() {
   await window.ethereum.request({ method: "eth_requestAccounts" });
 }
 
-async function createEvent(name, date, totalTickets, ticketPrice) {
+async function createEvent(name, description, imageUrl, date, totalTickets, ticketPrice) {
   // If MetaMask exists
   if (typeof window.ethereum !== "undefined") {
     await requestAccount();
@@ -23,7 +23,7 @@ async function createEvent(name, date, totalTickets, ticketPrice) {
     const formattedTicketPrice = ethers.utils.parseEther(`${ticketPrice}`);
 
     try {
-      const transaction = await contract.createEvent(name, date, totalTickets, formattedTicketPrice);
+      const transaction = await contract.createEvent(name, description, imageUrl, date, totalTickets, formattedTicketPrice);
       await transaction.wait();
     } catch (error) {
       console.log("Error: ", error);
@@ -109,7 +109,7 @@ async function withdrawFunds(eventId) {
   }
 }
 
-async function updateEventDetails(eventId, name, date, totalTickets, ticketPrice) {
+async function updateEventDetails(eventId, name, description, imageUrl, date, totalTickets, ticketPrice) {
   // If MetaMask exists
   if (typeof window.ethereum !== "undefined") {
     await requestAccount();
@@ -121,7 +121,7 @@ async function updateEventDetails(eventId, name, date, totalTickets, ticketPrice
     const formattedTicketPrice = ethers.utils.parseEther(`${ticketPrice}`);
 
     try {
-      const transaction = await contract.updateEventDetails(eventId, name, date, totalTickets, formattedTicketPrice);
+      const transaction = await contract.updateEventDetails(eventId, name, description, imageUrl, date, totalTickets, formattedTicketPrice);
       await transaction.wait();
     } catch (error) {
       console.log("Error: ", error);

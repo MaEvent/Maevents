@@ -7,6 +7,8 @@ contract EventTicketing {
 
     struct Event {
         string name;
+        string description; // Event description
+        string imageUrl;    // Event image URL
         uint256 date;
         bool isOpen;
         uint256 totalTickets;
@@ -25,7 +27,7 @@ contract EventTicketing {
     mapping(uint256 => Event) public events;
     mapping(uint256 => Ticket) public tickets;
 
-    event EventCreated(uint256 eventId, string name, uint256 date, uint256 totalTickets, uint256 ticketPrice);
+    event EventCreated(uint256 eventId, string name, string description, string imageUrl, uint256 date, uint256 totalTickets, uint256 ticketPrice);
     event TicketPurchased(uint256 ticketId, uint256 eventId, address buyer, uint256 price);
     event TicketEntered(uint256 ticketId);
 
@@ -34,13 +36,13 @@ contract EventTicketing {
         ticketId = 1;
     }
 
-    function createEvent(string memory _name, uint256 _date, uint256 _totalTickets, uint256 _ticketPrice) external {
+    function createEvent(string memory _name, string memory _description, string memory _imageUrl, uint256 _date, uint256 _totalTickets, uint256 _ticketPrice) external {
         require(_date > block.timestamp, "Event must be in the future");
         require(_totalTickets > 0, "Total tickets must be greater than 0");
         require(_ticketPrice > 0, "Ticket price must be greater than 0");
 
-        events[eventId] = Event(_name, _date, true, _totalTickets, 0, msg.sender, _ticketPrice, 0);
-        emit EventCreated(eventId, _name, _date, _totalTickets, _ticketPrice);
+        events[eventId] = Event(_name, _description, _imageUrl, _date, true, _totalTickets, 0, msg.sender, _ticketPrice, 0);
+        emit EventCreated(eventId, _name, _description, _imageUrl, _date, _totalTickets, _ticketPrice);
         eventId++;
     }
 
@@ -83,11 +85,13 @@ contract EventTicketing {
     }
 
     // Allow the event owner to update event details
-    function updateEventDetails(uint256 _eventId, string memory _name, uint256 _date, uint256 _totalTickets, uint256 _ticketPrice) external {
+    function updateEventDetails(uint256 _eventId, string memory _name, string memory _description, string memory _imageUrl, uint256 _date, uint256 _totalTickets, uint256 _ticketPrice) external {
         Event storage eventInfo = events[_eventId];
         require(eventInfo.isOpen, "Event is not open for updates");
         require(msg.sender == eventInfo.owner, "Only the event owner can update event details");
         eventInfo.name = _name;
+        eventInfo.description = _description;
+        eventInfo.imageUrl = _imageUrl;
         eventInfo.date = _date;
         eventInfo.totalTickets = _totalTickets;
         eventInfo.ticketPrice = _ticketPrice;
