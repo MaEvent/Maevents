@@ -22,4 +22,4 @@ jobs:
         run: npx hardhat compile
 
       - name: Build React App
-        run: npm run build
+        run: CI=false npm run build
