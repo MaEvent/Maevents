@@ -1,9 +1,16 @@
 import "./App.css";
+import React, { useState } from 'react';
 
 // Import ABI implementation
 import { createEvent, purchaseTicket, enterEvent, closeEvent, withdrawFunds, updateEventDetails, getAllEvents } from './services/EventTicketingService';
+import Navbar from './components/Header/Navbar'
+import Footer from './components/Footer/Footer'
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Alert from './components/Alert/CustomAlerts';
 
 function App() {
+  const [alert, setAlert] = useState(null);
 
   async function performCreateEvent() {
     createEvent("testing", "testing description", "imageUrl", 1696852293000, 2, 10);
@@ -31,16 +38,24 @@ function App() {
 
   async function performGetAllEvents() {
     getAllEvents();
+
+    function showAlert(message, type) {
+      setAlert({ message, type });
   }
+}
 
   // Return
   return (
-    <div className="App">
+   <Router>
+     <div className="App">
+     {alert && <Alert message={alert.message} type={alert.type} />}
+
+      <Navbar />
       <div className="App-header">
         {/* DESCRIPTION  */}
         <div className="description">
-          <h1>EventTicketing.sol</h1>
-          <h3>Full stack dapp using ReactJS and Hardhat</h3>
+          <h1>Welcome to Maevents</h1>
+          <h3>An event ticketing platform that turns regular tickets to NFTs so as to prevent ticket fraud.</h3>
         </div>
         {/* BUTTONS - Fetch and Set */}
         <div className="custom-buttons">
@@ -67,7 +82,9 @@ function App() {
           </button>
         </div>
       </div>
+      <Footer/>
     </div>
+   </Router>
   );
 }
 

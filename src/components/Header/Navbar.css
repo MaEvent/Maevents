@@ -1,0 +1,32 @@
+/* Navbar container */
+.navbar {
+    background-color: #333; /* Background color of the navbar */
+    color: white; /* Text color */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+    top: 0;
+  }
+  
+  /* Navbar title */
+  .navbar-title a {
+    text-decoration: none; /* Remove underline from the title link */
+    font-size: 1.5rem; /* Adjust font size as needed */
+    font-weight: bold; /* Make the title bold */
+    color: white; /* Text color for the title */
+  }
+  
+  /* Navbar links */
+  .navbar-links a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Text color for links */
+    margin-left: 20px; /* Add spacing between links */
+  }
+  
+  /* Navbar link hover effect */
+  .navbar-links a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+  
