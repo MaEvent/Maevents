@@ -2,6 +2,7 @@ import "./App.css";
 
 // Import ABI implementation
 import { createEvent, purchaseTicket, enterEvent, closeEvent, withdrawFunds, updateEventDetails, getAllEvents } from './services/EventTicketingService';
+// import Navbar from './components/Header/Navbar'
 
 function App() {
 
@@ -39,8 +40,8 @@ function App() {
       <div className="App-header">
         {/* DESCRIPTION  */}
         <div className="description">
-          <h1>EventTicketing.sol</h1>
-          <h3>Full stack dapp using ReactJS and Hardhat</h3>
+          <h1>Welcome to Maevents</h1>
+          <h3>An event ticketing platform that turns regular tickets to NFTs so as to prevent ticket fraud.</h3>
         </div>
         {/* BUTTONS - Fetch and Set */}
         <div className="custom-buttons">
