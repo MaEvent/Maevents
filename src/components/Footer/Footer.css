@@ -1,0 +1,23 @@
+/* Footer container */
+.footer {
+    background-color: #333; /* Background color of the footer */
+    color: white; /* Text color */
+    text-align: center;
+    padding: 10px 0;
+    position: absolute; /* Position the footer at the bottom of the page */
+    width: 100%; /* Full width */
+    bottom: 0; /* Stick to the bottom */
+  }
+  
+  /* Footer link */
+  .footer a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Text color for links */
+    margin: 0 10px; /* Add spacing between links */
+  }
+  
+  /* Footer link hover effect */
+  .footer a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+  
