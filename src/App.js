@@ -2,7 +2,9 @@ import "./App.css";
 
 // Import ABI implementation
 import { createEvent, purchaseTicket, enterEvent, closeEvent, withdrawFunds, updateEventDetails, getAllEvents } from './services/EventTicketingService';
-// import Navbar from './components/Header/Navbar'
+import Navbar from './components/Header/Navbar'
+import Footer from './components/Footer/Footer'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
 
@@ -36,7 +38,9 @@ function App() {
 
   // Return
   return (
-    <div className="App">
+   <Router>
+     <div className="App">
+      <Navbar />
       <div className="App-header">
         {/* DESCRIPTION  */}
         <div className="description">
@@ -68,7 +72,9 @@ function App() {
           </button>
         </div>
       </div>
+      <Footer/>
     </div>
+   </Router>
   );
 }
 
