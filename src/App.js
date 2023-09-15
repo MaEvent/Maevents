@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 
 // Import ABI implementation
 import { createEvent, purchaseTicket, enterEvent, closeEvent, withdrawFunds, updateEventDetails, getAllEvents } from './services/EventTicketingService';
-import Navbar from './components/Header/Navbar'
-import Footer from './components/Footer/Footer'
+// import Navbar from './components/Header/Navbar'
+// import Footer from './components/Footer/Footer'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Alert from './components/Alert/CustomAlerts';
@@ -50,40 +50,40 @@ function App() {
      <div className="App">
      {alert && <Alert message={alert.message} type={alert.type} />}
 
-      <Navbar />
-      <div className="App-header">
+      {/* <Navbar /> */}
+      {/* <div className=""> */}
         {/* DESCRIPTION  */}
         <div className="description">
           <h1>Welcome to Maevents</h1>
-          <h3>An event ticketing platform that turns regular tickets to NFTs so as to prevent ticket fraud.</h3>
+          <h3>An event ticketing platform foucsed on preventing ticket fraud.</h3>
         </div>
         {/* BUTTONS - Fetch and Set */}
         <div className="custom-buttons">
-          <button onClick={performGetAllEvents} style={{ backgroundColor: "green" }}>
+          <button onClick={performGetAllEvents} style={{ backgroundColor: "grey" }}>
             Get All Events
           </button>
-          <button onClick={performCreateEvent} style={{ backgroundColor: "red" }}>
+          <button onClick={performCreateEvent} style={{ backgroundColor: "grey" }}>
             Create Event
           </button>
-          <button onClick={performPurchaseTicket} style={{ backgroundColor: "blue" }}>
+          <button onClick={performPurchaseTicket} style={{ backgroundColor: "grey" }}>
             Purchase Ticket
           </button>
-          <button onClick={performEnterEvent} style={{ backgroundColor: "yellow" }}>
+          <button onClick={performEnterEvent} style={{ backgroundColor: "grey" }}>
             Enter Event
           </button>
-          <button onClick={performCloseEvent} style={{ backgroundColor: "orange" }}>
+          <button onClick={performCloseEvent} style={{ backgroundColor: "grey" }}>
             Close Event
           </button>
-          <button onClick={performWithdrawFunds} style={{ backgroundColor: "purple" }}>
+          <button onClick={performWithdrawFunds} style={{ backgroundColor: "grey" }}>
             Withdraw Funds
-          </button>
+          </button>  
           <button onClick={performUpdateEventDetails} style={{ backgroundColor: "grey" }}>
             Edit Event
           </button>
         </div>
       </div>
-      <Footer/>
-    </div>
+      {/* <Footer/> */}
+    {/* </div> */}
    </Router>
   );
 }
