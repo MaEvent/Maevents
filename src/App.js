@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 // Import ABI implementation
 import { createEvent, purchaseTicket, enterEvent, closeEvent, withdrawFunds, updateEventDetails, getAllEvents } from './services/EventTicketingService';
+
 // import Navbar from './components/Header/Navbar'
 // import Footer from './components/Footer/Footer'
 
