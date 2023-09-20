@@ -4,17 +4,29 @@ import React, { useState } from 'react';
 // Import ABI implementation
 import { createEvent, purchaseTicket, enterEvent, closeEvent, withdrawFunds, updateEventDetails, getAllEvents } from './services/EventTicketingService';
 
-import Navbar from './components/Header/Navbar'
-// import Footer from './components/Footer/Footer'
+import Navbar from './components/Header/Navbar';
+// import Footer from './components/Footer/Footer';
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Alert from './components/Alert/CustomAlerts';
+import CreateEventForm from './components/Pages/CreateEvent/CreateEvent';
 
 function App() {
   const [alert, setAlert] = useState(null);
+  const [isCreatingEvent, setIsCreatingEvent] = useState(false);
 
-  async function performCreateEvent() {
-    createEvent("testing", "testing description", "imageUrl", 1696852293000, 2, 10);
+  async function performCreateEvent(eventData) {
+    // Call the createEvent function with dynamic values
+    createEvent(
+      eventData.name,
+      eventData.description,
+      eventData.imageUrl,
+      eventData.date,
+      eventData.totalTickets,
+      eventData.ticketPrice
+    );
+
+    setIsCreatingEvent(false);
   }
 
   async function performPurchaseTicket() {
@@ -42,50 +54,35 @@ function App() {
 
     function showAlert(message, type) {
       setAlert({ message, type });
+    }
   }
-}
 
   // Return
   return (
-   <Router>
-     <div className="App">
-     {alert && <Alert message={alert.message} type={alert.type} />}
-
-      <Navbar />
-      {/* <div className=""> */}
-        {/* DESCRIPTION  */}
+    <Router>
+      <div className="App">
+        {alert && <Alert message={alert.message} type={alert.type} />}
+        <Navbar />
         <div className="description">
           <h1>Welcome to Maevents</h1>
-          <h3>An event ticketing platform foucsed on preventing ticket fraud.</h3>
+          <h3>An event ticketing platform focused on preventing ticket fraud.</h3>
         </div>
-        {/* BUTTONS - Fetch and Set */}
         <div className="custom-buttons">
           <button onClick={performGetAllEvents} style={{ backgroundColor: "grey" }}>
             Get All Events
           </button>
-          <button onClick={performCreateEvent} style={{ backgroundColor: "grey" }}>
+          <button onClick={() => setIsCreatingEvent(true)} style={{ backgroundColor: "grey" }}>
             Create Event
-          </button>
-          <button onClick={performPurchaseTicket} style={{ backgroundColor: "grey" }}>
-            Purchase Ticket
           </button>
           <button onClick={performEnterEvent} style={{ backgroundColor: "grey" }}>
             Enter Event
           </button>
-          <button onClick={performCloseEvent} style={{ backgroundColor: "grey" }}>
-            Close Event
-          </button>
-          <button onClick={performWithdrawFunds} style={{ backgroundColor: "grey" }}>
-            Withdraw Funds
-          </button>  
-          <button onClick={performUpdateEventDetails} style={{ backgroundColor: "grey" }}>
-            Edit Event
-          </button>
         </div>
+        {/* Render the CreateEventForm conditionally */}
+        {isCreatingEvent && <CreateEventForm onSubmit={performCreateEvent} />}
+        {/* <Footer /> */}
       </div>
-      {/* <Footer/> */}
-    {/* </div> */}
-   </Router>
+    </Router>
   );
 }
 

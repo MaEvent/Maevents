@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./EventCreationForm.css"; // Import your CSS file
+import './CreateEvent.css'; // Import your CSS file
 
 function EventCreationForm({ createEvent }) {
   const [name, setName] = useState("");

@@ -20,8 +20,8 @@ function EditEventForm({ eventId }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form onSubmit={handleSubmit} className="event-form">
+      <div className="form-group">
         <label>Name:</label>
         <input
           type="text"
@@ -30,7 +30,7 @@ function EditEventForm({ eventId }) {
           required
         />
       </div>
-      <div>
+      <div className="form-group">
         <label>Description:</label>
         <input
           type="text"
@@ -39,7 +39,7 @@ function EditEventForm({ eventId }) {
           required
         />
       </div>
-      <div>
+      <div className="form-group">
         <label>Image URL:</label>
         <input
           type="text"
@@ -48,7 +48,7 @@ function EditEventForm({ eventId }) {
           required
         />
       </div>
-      <div>
+      <div className="form-group">
         <label>Date:</label>
         <input
           type="date"
@@ -57,7 +57,7 @@ function EditEventForm({ eventId }) {
           required
         />
       </div>
-      <div>
+      <div className="form-group">
         <label>Number of Tickets:</label>
         <input
           type="number"
@@ -66,7 +66,7 @@ function EditEventForm({ eventId }) {
           required
         />
       </div>
-      <div>
+      <div className="form-group">
         <label>Ticket Price:</label>
         <input
           type="number"
@@ -75,7 +75,7 @@ function EditEventForm({ eventId }) {
           required
         />
       </div>
-      <button type="submit">Save Changes</button>
+      <button type="submit" className="submit-button">Save Changes</button>
     </form>
   );
 }
