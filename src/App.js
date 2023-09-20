@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 // Import ABI implementation
 import { createEvent, purchaseTicket, enterEvent, closeEvent, withdrawFunds, updateEventDetails, getAllEvents } from './services/EventTicketingService';
 
-// import Navbar from './components/Header/Navbar'
+import Navbar from './components/Header/Navbar'
 // import Footer from './components/Footer/Footer'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -51,7 +51,7 @@ function App() {
      <div className="App">
      {alert && <Alert message={alert.message} type={alert.type} />}
 
-      {/* <Navbar /> */}
+      <Navbar />
       {/* <div className=""> */}
         {/* DESCRIPTION  */}
         <div className="description">

@@ -1,32 +1,47 @@
 /* Navbar container */
 .navbar {
-    background-color: #333; /* Background color of the navbar */
-    color: white; /* Text color */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    width: 100%;
-    top: 0;
-  }
-  
-  /* Navbar title */
-  .navbar-title a {
-    text-decoration: none; /* Remove underline from the title link */
-    font-size: 1.5rem; /* Adjust font size as needed */
-    font-weight: bold; /* Make the title bold */
-    color: white; /* Text color for the title */
-  }
-  
-  /* Navbar links */
-  .navbar-links a {
-    text-decoration: none; /* Remove underline from links */
-    color: white; /* Text color for links */
-    margin-left: 20px; /* Add spacing between links */
-  }
-  
-  /* Navbar link hover effect */
-  .navbar-links a:hover {
-    text-decoration: underline; /* Add underline on hover */
-  }
-  
+  color: rgb(2, 2, 2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* Add padding to the top and bottom, and left and right sides */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-text {
+  padding-left: 20px; /* Add left padding to the text */
+  padding-right: 20px; /* Add right padding to the text */
+}
+
+
+/* Navbar title */
+.navbar-title a {
+  text-decoration: none;
+  /* Remove underline from the title link */
+  font-size: 1.5rem;
+  /* Adjust font size as needed */
+  font-weight: bold;
+  /* Make the title bold */
+  color: white;
+  /* Text color for the title */
+}
+
+/* Navbar links */
+.navbar-links a {
+  text-decoration: none;
+  /* Remove underline from links */
+  color: white;
+  /* Text color for links */
+  margin-left: 20px;
+  /* Add spacing between links */
+}
+
+/* Navbar link hover effect */
+.navbar-links a:hover {
+  text-decoration: underline;
+  /* Add underline on hover */
+}

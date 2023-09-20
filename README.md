@@ -1,3 +1,10 @@
+# welcome to Maevents
+An event ticketing platform foucsed on preventing ticket fraud.
+
+![Alt Text](C:\Users\HP\Desktop\Eth safari\Maevents\public\maevents.jpg)
+
+
+
 # Basic Sample Hardhat Project - Maevents
 
 This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
