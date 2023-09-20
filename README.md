@@ -1,7 +1,7 @@
 # welcome to Maevents
 An event ticketing platform foucsed on preventing ticket fraud.
 
-![Alt Text](C:\Users\HP\Desktop\Eth safari\Maevents\public\maevents.jpg)
+![Alt Text](./public/maevents.jpg)
 
 
 
