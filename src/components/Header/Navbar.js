@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // If you're using React Router for navigation
-import './Navbar.css'; // Import the CSS file
-import performGetAllEvents from '../../App'
+import { Link } from 'react-router-dom';
+import './Navbar.css';
+import performGetAllEvents from '../../App.js'
 
 function Navbar() {
   return (
@@ -10,9 +10,9 @@ function Navbar() {
         <Link to="/">MaEvents</Link>
       </div>
       <div className="navbar-links">
-        <Link to="/home">Home</Link>
-        <Link onClick={performGetAllEvents}>All Events</Link>
-        {/* <Link to="/contact">Contact</Link> */}
+        <Link to="/home" className="navbar-text">Home</Link>
+        <Link onClick={performGetAllEvents} className="navbar-text">All Events</Link>
+        {/* <Link to="/contact" className="navbar-text">Contact</Link> */}
         {/* Add more links/buttons as needed */}
       </div>
     </nav>

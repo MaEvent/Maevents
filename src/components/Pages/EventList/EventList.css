@@ -1,0 +1,26 @@
+/* EventList.css */
+
+.event-list-container {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .event-list-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .event-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .event-list-item {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  /* Add more styles as needed */
+  
