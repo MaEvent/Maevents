@@ -6,7 +6,7 @@ import { createEvent, purchaseTicket, enterEvent, closeEvent, withdrawFunds, upd
 // import Navbar from './components/Header/Navbar'
 // import Footer from './components/Footer/Footer'
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Alert from './components/Alert/CustomAlerts';
 
 function App() {
@@ -38,10 +38,6 @@ function App() {
 
   async function performGetAllEvents() {
     getAllEvents();
-
-    function showAlert(message, type) {
-      setAlert({ message, type });
-  }
 }
 
   // Return
