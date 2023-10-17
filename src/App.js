@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from 'react';
+import React from 'react';
 
 // Import ABI implementation
 import { createEvent, purchaseTicket, enterEvent, closeEvent, withdrawFunds, updateEventDetails, getAllEvents } from './services/EventTicketingService';
@@ -7,10 +7,10 @@ import { createEvent, purchaseTicket, enterEvent, closeEvent, withdrawFunds, upd
 // import Footer from './components/Footer/Footer'
 
 import { BrowserRouter as Router } from 'react-router-dom';
-import Alert from './components/Alert/CustomAlerts';
+// import Alert from './components/Alert/CustomAlerts';
 
 function App() {
-  const [alert, setAlert] = useState(null);
+  // const [alert, setAlert] = useState(null);
 
   async function performCreateEvent() {
     createEvent("testing", "testing description", "imageUrl", 1696852293000, 2, 10);
@@ -38,13 +38,17 @@ function App() {
 
   async function performGetAllEvents() {
     getAllEvents();
+
+  // function showAlert(message, type) {
+  //     setAlert({ message, type });
+  // }
 }
 
   // Return
   return (
    <Router>
      <div className="App">
-     {alert && <Alert message={alert.message} type={alert.type} />}
+     {/* {alert && <Alert message={alert.message} type={alert.type} />} */}
 
       {/* <Navbar /> */}
       {/* <div className=""> */}
